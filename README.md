@@ -111,9 +111,8 @@ For getting Discord notifications you have to specify a [Discord webhook url](ht
 
 ## Run the script
 
- 1. Rename the [config.json.example](config.json.example) file to "config.json"
- 2. Edit the "config.json" file to fit your preferences (optional)
- 3. Install dependencies:   ```pip install -r requirements.txt```
- 4. Run [auto_joiner.py](auto_joiner.py): `python3 auto_joiner.py`
- 5. After starting, teams might be in Grid view, if this is the case change the view to list [(How to do)](https://support.microsoft.com/en-us/office/view-and-organize-your-teams-b9dd0d8c-243a-43a4-9501-ec8017fec32e)
+ 1. Edit the "config.json" file to fit your preferences (optional)
+ 2. Install dependencies:   ```pip install -r requirements.txt```
+ 3. Run [auto_joiner.py](auto_joiner.py): `python3 auto_joiner.py`
+ 4. After starting, teams might be in Grid view, if this is the case change the view to list [(How to do)](https://support.microsoft.com/en-us/office/view-and-organize-your-teams-b9dd0d8c-243a-43a4-9501-ec8017fec32e)
 <img src="https://i.imgur.com/GODoJYf.png?2" width="300" height="245" />
