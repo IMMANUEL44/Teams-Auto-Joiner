@@ -1,45 +1,47 @@
 # Teams-Auto-Joiner [![GitHub stars](https://img.shields.io/github/stars/TobiasPankner/Teams-Auto-Joiner.svg?style=social&label=Star)](https://GitHub.com/TobiasPankner/Teams-Auto-Joiner/stargazers/) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3TU2XDBK2JFU4&source=url)
 
+## Table of Contents
+
 - [Prerequisites](#prerequisites)
 - [Configuration options](#configuration-options)
 - [Run the script](#run-the-script)
 
+## What does this do
+
 Python script to automatically join Microsoft Teams meetings.
 Automatically turns off your microphone and camera before joining. Automatic login and blacklist can be set in the config file.
 
-Always joins the newest meeting and leaves either after a specified time, if you are the last person in the meeting or only if a new one is available (see [Configuration options](#configuration-options) for more information).
-I also made a short tutorial video on how to setup the bot: https://youtu.be/YgkSOqfIjf4
-
-![Demo](https://imgur.com/VQOJl8w.gif)
+Always joins the newest meeting and leaves either after a specified time, or if you are the last person in the meeting or only if a new one is available .
+I also made a short tutorial video on how to setup the bot and you can check it out [HERE](https://youtu.be/YgkSOqfIjf4)
 
 ## Prerequisites  
   
- - Python3 ([Download](https://www.python.org/downloads/))  
+ - Python3 ([Download](https://www.python.org/downloads/))
    
 ## Configuration options  
   
-- **email/password:**  
-The email/password of your Microsoft account. In case you don't want to store your credentials on disk, you can leave any of them empty and you will be prompted to enter them. If you leave them empty in the prompt too, you will have to enter them in the browser.   
+- **email/password:**
+The email/password of your Microsoft account. In case you don't want to store your credentials on disk, you can leave any of them empty and you will be prompted to enter them. If you leave them empty in the prompt too, you will have to enter them in the browser. 
 
-- **run_at_time:**  
+- **run_at_time:**
 Time to start the script at. Input is a string of the hour and minute in 24h format, if you want it to start immediately leave this empty. 
 If a time before the current time is given, the next day is used. Also make sure that you entered your email and password.
 For example, if you want the script to start searching meetings at 6 in the morning on the next day, you would input `06:00` in the config.
 
 - **meeting_mode:**
-Change which meetings should be joined. Modes 1, 2 and 3 are available.  
-`1` Both channel and calendar meetings  
-`2` Only channel meetings  
-`3` Only calendar meetings  
+Change which meetings should be joined. Modes 1, 2 and 3 are available.
+`1` Both channel and calendar meetings
+`2` Only channel meetings
+`3` Only calendar meetings
 
 - **organisation_num:**
 If your Teams account is in multiple organisations, as seen in the example below, change the organisation_num to the number of the list item (counting starts from 0), 
-set to -1 to never change organisation.  
+set to -1 to never change organisation.
 
     <img width="30%" src="https://imgur.com/4NTVrqj.png">
 
 - **random_delay:**
-Adds a random delay (random integer between the two parameters, in seconds) before joining a meeting. Can be useful so the bot seems more "human like" or to avoid being one of the first few people to join a meeting. For a fixed delay, set both parameters to the same Integer.  
+Adds a random delay (random integer between the two parameters, in seconds) before joining a meeting. Can be useful so the bot seems more "human like" or to avoid being one of the first few people to join a meeting. For a fixed delay, set both parameters to the same Integer.
 eg: [30,30] will add a fixed delay of 30s before joining the meet.
 
 - **check_interval:**
@@ -55,17 +57,17 @@ If set to a value greater than zero, the bot leaves every meeting after the spec
 If true, leaves the meeting if you are the last person in it.
 
 - **leave_threshold_number:**
-Sets the threshold for people to leave the meeting before the bot leaves the meeting.  
-For example:  
-Peak members of meeting: 20  
-Current members of meeting: 5  
-Leave threshold set to 15  
-Because 15 people have left the meeting, the bot leaves.  
+Sets the threshold for people to leave the meeting before the bot leaves the meeting.
+For example:
+Peak members of meeting: 20
+Current members of meeting: 5
+Leave threshold set to 15
+Because 15 people have left the meeting, the bot leaves.
 (Must enable leave_if_last for this to work) 
 
 - **leave_threshold_percentage:**
 Sets the threshold percentage of people still in the meeting before auto leaving. The same as 
-leave_threshold_number but with percentage of the current members to the peak.  
+leave_threshold_number but with percentage of the current members to the peak.
 (Must enable leave_if_last for this to work)
 
 - **pause_search:**
@@ -83,7 +85,7 @@ Valid options: `google-chrome`, `chromium`, `msedge`. By default, google chrome 
 
 - **blacklist:**
 A list of Teams and their channels to ignore. Meetings ocurring in these channels will not be joined.
-If you have a Team called "Test1" and, within that, two channels called "General" and "Channel1" and you don't want to join meetings in the "General" Channel:  
+If you have a Team called "Test1" and, within that, two channels called "General" and "Channel1" and you don't want to join meetings in the "General" Channel:
     ```json
     "blacklist": [
       {
@@ -98,10 +100,10 @@ If you have a Team called "Test1" and, within that, two channels called "General
 
 - **blacklist_meeting_re:**
 If calendar meeting title matches a regular expression, it goes to blacklist.
-Leave empty to attend to all calendar meetings.  
+Leave empty to attend to all calendar meetings.
 
 - **discord_webhook_url:**
-For getting Discord notifications you have to specify a [Discord webhook url](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).  
+For getting Discord notifications you have to specify a [Discord webhook url](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
 
     ```json 
     "discord_webhook_url" : "your_discord_channel_webHook_url" 
@@ -111,4 +113,4 @@ For getting Discord notifications you have to specify a [Discord webhook url](ht
 
  1. Edit the "config.json" file to fit your preferences (optional)
  2. Install dependencies:   ```pip install -r requirements.txt```
- 3. Run [auto_joiner.py](auto_joiner.py): `python3 auto_joiner.py`
+ 3. Run [auto_joiner.py](auto_joiner.py): ```python3 auto_joiner.py```
